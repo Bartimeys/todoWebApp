@@ -1,47 +1,107 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h1>{{ title }}</h1>
+    <div class="header-bar"></div>
+    <p>
+      <!-- use router-link component for navigation. -->
+      <!-- specify the link by passing the `to` prop. -->
+      <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
+      <router-link to="/todos">Go to Todos</router-link>
+      <router-link to="/nofly">Go to NoFly</router-link>
+    </p>
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+<script lang="ts">
+  import Vue from 'vue';
+  import { Component } from 'vue-property-decorator';
+  import VueRouter, { RouteConfig } from 'vue-router';
+  import TodoList from './components/TodoList.vue';
+  import VillainList from './components/NoFlyList.vue'
+  const PageNotFound = { template: '<div>404</div>' };
+  const viewNames = ['completed', 'active', '*'];
+  const routes: RouteConfig[] = [
+    { path: '/', redirect: '/todos' },
+    { path: '/todos', component: TodoList },
+    { path: '/nofly', component: VillainList },
+    { path: '**', component: PageNotFound }
+  ];
+  const router = new VueRouter({ routes });
+  Vue.use(VueRouter);
+  @Component({ router: router })
+  export default class App extends Vue {
+    mixins = [VueRouter];
+    title: string;
+    constructor() {
+      super(router);
+      this.title = 'My Vue and CosmosDB Todos App';
     }
   }
-}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+  body,
+  input[text],
+  button {
+    color: #888;
+    font-family: Arial;
+  }
+  button {
+    color: #888;
+    font-family: Arial;
+    font-size: 14px;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    &:hover {
+      background-color: #cfd8dc;
+    }
+  }
+  body {
+    margin: 2em;
+  }
+  div {
+    margin: 0.1em;
+  }
+  .header-bar {
+    background-color: rgb(0, 120, 215);
+    height: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  label {
+    display: inline-block;
+    width: 4em;
+    margin: 0.5em 0;
+    color: #888;
+    &.value {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: 0.4em;
+    &::placeholder {
+      color: lightgray;
+      font-weight: normal;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
 </style>

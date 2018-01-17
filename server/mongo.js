@@ -13,7 +13,7 @@ const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${process.env.COSMOS
 // &replicaSet=globaldb`;
 
 // Local MongoDB Connection String
-// const mongoUri = `mongodb://localhost:27017/connect-heroes`;
+// const mongoUri = `mongodb://localhost:27017/connect-todos`;
 
 function connect() {
   mongoose.set('debug', true);

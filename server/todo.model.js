@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const heroSchema = new Schema(
+const todoSchema = new Schema(
   {
     id: { type: Number, required: true, unique: true },
     name: String,
     saying: String
   },
   {
-    collection: 'heroes',
+    collection: 'todos',
     read: 'nearest'
   }
 );
 
-const Hero = mongoose.model('Hero', heroSchema);
+const Todo = mongoose.model('Todo', todoSchema);
 
-module.exports = Hero;
+module.exports = Todo;
