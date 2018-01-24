@@ -80,18 +80,16 @@
 </script>
 
 <style lang="scss" scoped>
-  .editarea {
-    float: left;
-    input {
-      margin: 4px;
-      height: 20px;
-      color: rgb(0, 120, 215);
-    }
-    button {
-      margin: 8px;
-    }
-    .editfields {
-      margin-left: 12px;
-    }
+  button {
+    font-size: 14px;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+  }
+  label{
+    width: 3em;
   }
 </style>

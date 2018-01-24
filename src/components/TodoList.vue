@@ -16,7 +16,7 @@
               <div class="saying">{{todo.saying}}</div>
             </div>
           </div>
-          <button class="delete-button" @click="deleteTodo(todo)">Delete</button>
+          <button class="delete-button" @click="deleteTodo(todo)">x</button>
         </li>
       </ul>
     </transition>
@@ -82,93 +82,61 @@
     }
   }
 </script>
-
 <style lang="scss" scoped>
-  .button-group {
-    margin: 0.5em;
+  div, .todo-element {
+    display: inline-block;
   }
-  button.delete-button {
-    background-color: rgb(216, 59, 1);
-    color: white;
-    padding: 4px;
+  li {
+    list-style:none;
+    cursor: pointer;
     position: relative;
-    font-size: 12px;
-    max-width: 50px;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    border-radius: 4px;
+    color: #888;
+    height: 2em;
   }
-  .selected {
-    background-color: rgb(0, 120, 215) !important;
+  button.delete-button{
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-right: .8em;
+    background-color: #cc9a9a;
     color: white;
+    width: 2em;
   }
-  .todos {
-    float: left;
+  .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.9em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+  button{
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  ul{
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 20em;
-    li {
-      cursor: pointer;
-      position: relative;
-      background-color: #f7f7f7;
-      margin: 0.5em;
-      height: 3.2em;
-      border-radius: 4px;
-      &:hover {
-        color: #607d8b;
-        color: rgb(0, 120, 215);
-        background-color: #ddd;
-        left: 1px;
-      }
-      &.selected:hover {
-        color: white;
-      }
-    }
-    .text {
-      position: relative;
-      top: -3px;
-    }
-    .saying {
-      margin: 5px 2.3px;
-    }
-    .name {
-      font-weight: bold;
-    }
-    .todo-container {
-      display: flex;
-      flex-flow: row wrap;
-    }
-    > * {
-      flex: 1 100%;
-    }
-    .todo-element {
-      display: flex;
-      flex-flow: row wrap;
-      flex: 18 auto;
-      order: 1;
-      padding: 0;
-      margin: 0;
-    }
-    .delete-button {
-      flex: 1 auto;
-      order: 2;
-      border-radius: 0 4px 4px 0;
-    }
-    .todo-text {
-      flex: 1 auto;
-      order: 2;
-      padding: 0.2em 0.5em;
-    }
-    .badge {
-      flex: 1 auto;
-      order: 1;
-      font-size: small;
-      color: #ffffff;
-      padding: 1.2em 1em 0em 1em;
-      background-color: #607d8b;
-      background-color: rgb(0, 120, 215);
-      background-color: rgb(134, 183, 221);
-      margin: 0em 0em 0em 0em;
-      border-radius: 4px 0 0 4px;
-      max-width: 1.5em;
-    }
+    width: 15em;
+  }
+  label{
+    width: 3em;
   }
 </style>
