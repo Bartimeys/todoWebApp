@@ -1,13 +1,33 @@
 <template>
-  <header class="header">
-    <h1>todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus>
-  </header>
+  <section class="autocomplete">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Card Title</span>
+            <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 </template>
+
 <script lang="ts">
-  export default {
+  import Vue from 'vue';
+  import { Component } from 'vue-property-decorator';
+
+  @Component({ })
+  export default class NoFlyList extends Vue {
+
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 
 </style>

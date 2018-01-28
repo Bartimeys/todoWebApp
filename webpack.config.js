@@ -2,7 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.ts',
+  entry:[
+    // './node_modules/materialize-css/dist/css/materialize.min.css',
+    // 'node_modules/materialize-css/dist/js/materialize.min.js',
+    './src/main.ts'
+  ],
   output: {
     path: path.resolve(__dirname, './server/www'),
     publicPath: '/server/www/',
@@ -44,6 +48,10 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       }
+    ],
+    loaders: [
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
     ]
   },
   resolve: {

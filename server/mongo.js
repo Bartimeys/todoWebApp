@@ -7,13 +7,13 @@ mongoose.Promise = global.Promise;
 
 // Cosmos DB Connection String
 // eslint-disable-next-line max-len
-const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${process.env.COSMOSDB_KEY}@${
-  process.env.COSMOSDB_ACCOUNT
-}.documents.azure.com:${process.env.COSMOSDB_PORT}/${process.env.COSMOSDB_DB}?ssl=true`;
+// const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${process.env.COSMOSDB_KEY}@${
+//   process.env.COSMOSDB_ACCOUNT
+// }.documents.azure.com:${process.env.COSMOSDB_PORT}/${process.env.COSMOSDB_DB}?ssl=true`;
 // &replicaSet=globaldb`;
 
 // Local MongoDB Connection String
-// const mongoUri = `mongodb://localhost:27017/connect-todos`;
+const mongoUri = `mongodb://localhost:27017/todos`;
 
 function connect() {
   mongoose.set('debug', true);

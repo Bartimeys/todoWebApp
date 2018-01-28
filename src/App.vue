@@ -8,6 +8,7 @@
       <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
       <router-link to="/todos">Go to Todos</router-link>
       <router-link to="/nofly">Go to list of Dastardly Deeds</router-link>
+      <router-link to="/autocomplete"> Vue js autocomplete</router-link>
     </p>
     <!-- route outlet -->
     <!-- component matched by the route will render here -->
@@ -21,6 +22,7 @@
   import VueRouter, { RouteConfig } from 'vue-router';
   import TodoList from './components/TodoList.vue';
   import NoFlyList from './components/NoFlyList.vue'
+  import Autocomplete from './components/Autocomplete.vue'
   import { RouteViews } from './models';
   const PageNotFound = { template: '<div>404</div>' };
   const viewNames = ['completed', 'active', '*'];
@@ -28,6 +30,7 @@
     { path: '/', redirect: '/todos' },
     { path: '/todos', component: TodoList },
     { path: '/nofly', component: NoFlyList },
+    { path: '/autocomplete', component: Autocomplete },
     // { path: '/nofly', component: NoFlyList },
     { path: '**', component: PageNotFound }
   ];
